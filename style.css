@@ -1,0 +1,116 @@
+ *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
+}
+
+body{
+    background:#0f0f1a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Cursor Glow */
+.cursor{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    position:fixed;
+    background:cyan;
+    pointer-events:none;
+    mix-blend-mode:difference;
+    transition:0.1s;
+}
+
+/* Header */
+header{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 50px;
+}
+
+nav a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    position:relative;
+}
+
+nav a::after{
+    content:'';
+    width:0%;
+    height:2px;
+    background:cyan;
+    position:absolute;
+    bottom:-5px;
+    left:0;
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* Hero */
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.title{
+    font-size:60px;
+    background:linear-gradient(90deg, cyan, purple);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px cyan; }
+    to{ text-shadow:0 0 30px purple; }
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    background:linear-gradient(45deg, cyan, purple);
+    color:white;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+/* Cards */
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:50px;
+}
+
+.card{
+    width:200px;
+    height:150px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    transition:0.5s;
+}
+
+.card:hover{
+    transform:translateY(-20px) scale(1.1);
+    box-shadow:0 0 30px cyan;
+}
